@@ -9,12 +9,18 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('error') {
           steps {
             sh 'ls -la'
           }
         }
 
+      }
+    }
+
+    stage('') {
+      steps {
+        sh 'npm i && npm run test:unit'
       }
     }
 
