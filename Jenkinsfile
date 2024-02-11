@@ -2,8 +2,19 @@ pipeline {
   agent any
   stages {
     stage('checkout code') {
-      steps {
-        git(url: 'https://github.com/ichouBA/jenkensTP', branch: 'main')
+      parallel {
+        stage('checkout code') {
+          steps {
+            git(url: 'https://github.com/ichouBA/jenkensTP', branch: 'main')
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
       }
     }
 
